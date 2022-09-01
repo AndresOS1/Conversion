@@ -4,9 +4,9 @@
         
         <div class="w-75 d-flex justify-content-center flex-column">
             <div class="w-100 d-flex p-1">
-                <a href="" class="btn fs-1"><i class="bi bi-arrow-left-circle-fill"></i></a>
+                <a href="{{-- {{route('pais.index')}} --}}" class="btn fs-1"><i class="bi bi-arrow-left-circle-fill"></i></a>
             </div>
-            <form action="{{-- {{route('pais.create')}} --}}" class="d-flex flex-column w-75 m-auto mt-5 gap-5 " method="POST">
+            <form action="{{-- {{route('pais.store')}} --}}" class="d-flex flex-column w-75 m-auto mt-5 gap-5 " method="POST">
                 @csrf
                 <div class="w-100 d-flex  flex-column justify-content-center aligin-items-center">
                     <h1 class="d-flex justify-content-center">Crea tu pais</h1>
