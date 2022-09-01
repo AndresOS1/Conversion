@@ -30,6 +30,11 @@ class ConversionController extends Controller
         return view('conversion', compact('monedas'));   
     }
 
+    public function byMoneda($id){
+
+        return Moneda::where('id_moneda', $id)->get();
+    }
+
     /**
      * Store a newly created resource in storage.
      *
