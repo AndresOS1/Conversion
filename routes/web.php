@@ -19,11 +19,6 @@ use App\Http\Controllers\MonedaController;
 Route::get('/', function () {
     return view('welcome');
 });
-ROute::get('/d',function(){
-    return view('moneda.create');
-});
-
-
 
 Route::get('/pais.index',[PaisController::class,'index'])->name('Pais.index');
 Route::get('/pais.create',[PaisController::class,'create'])->name('Pais.create');

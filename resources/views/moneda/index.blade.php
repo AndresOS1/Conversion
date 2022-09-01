@@ -1,7 +1,10 @@
 @extends('dashboard')
 @section('content') 
         
-        <div class="w-75 d-flex justify-content-center flex-column">
+        <div class="w-75 d-flex justify-content-center flex-column h-100">
+            <div class="w-100">
+                <a href="" class="btn btn-dark "><i class="bi bi-journal-plus"></i></a>
+            </div>
             <table class="table">
                 <thead>
                   <tr>
