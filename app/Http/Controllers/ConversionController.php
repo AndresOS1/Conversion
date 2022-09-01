@@ -26,9 +26,8 @@ class ConversionController extends Controller
      */
     public function create()
     {
-        $paises = Pais::all();
         $monedas = Moneda::all();
-        
+        return view('conversion', compact('monedas'));   
     }
 
     /**
