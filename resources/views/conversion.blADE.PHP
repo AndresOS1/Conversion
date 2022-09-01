@@ -9,25 +9,20 @@
                 </div>
                        <div class="col d-flex flex-wrap flex-column mt-3">
                              <div class="w-100 d-flex flex-wrap justify-content-center">
-                                <input type="tel" class="form-contorl w-100">
+                                <input type="tel" class="form-contorl w-100" name="cantidad">
                                 <label for="">cantidad</label>
                              </div>
                              <div class="w-100 mt-2">
                                 <select name="" id="" class="form-select">
                                     <option value="">selecciones el pais</option>
+                                    @foreach ($monedas as $m)
+                                    <option value="">{{$m->moneda}}</option>
+                                    @endforeach
                                 </select>
                              </div>
                        </div>
-                       <div class="col d-flex justify-content-center p-4">
-                              <button class="btn btn-dark"><i class="bi bi-shuffle"></i></button>
-                       </div>
-                       <div class="co-3">
-                            <div class="d-flex m-3">
-                                <select name="" id="" class="form-select">
-                                    <option value="">selecciones el pais</option>
-                                </select>
-                            </div>
-                       </div>
+
             </form>
        </div>
+       <script src="js/logica.js"></script>
 @endsection
