@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaisController;
 use App\Http\Controllers\MonedaController;
+use App\Http\Controllers\ConversionController;
 
 
 /*
@@ -34,3 +35,7 @@ Route::post('/moneda.store',[MonedaController::class,'store'])->name('moneda.sto
 Route::get('/editarmoneda/{id}',[MonedaController::class,'edit'])->name('editarmoneda');
 Route::put('/actualizarmoneda/{id}',[MonedaController::class,'update'])->name('actualizarmoneda');
 Route::delete('/eliminarmoneda/{id}',[MonedaController::class,'destroy'])->name('eliminarmoneda');
+
+Route::get('/conversion.create',[ConversionController::class,'index'])->name('moneda.index');
+
+

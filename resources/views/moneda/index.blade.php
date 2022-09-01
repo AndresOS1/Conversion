@@ -3,7 +3,7 @@
         
         <div class="w-75 d-flex justify-content-center flex-column h-100">
             <div class="w-100">
-                <a href="" class="btn btn-dark "><i class="bi bi-journal-plus"></i></a>
+                <a href="{{route('moneda.create')}}" class="btn btn-dark "><i class="bi bi-journal-plus"></i></a>
             </div>
             <table class="table">
                 <thead>
@@ -18,14 +18,16 @@
                     @foreach ($monedas as $m)
                     <tr>
                         <th scope="row">{{$m->modena_id}}</th>
-                        <td>{{$m->nombre_moneda}}</td>
+                        <td>{{$m->moneda}}</td>
                         <td>{{$m->valor}}</td>
                         <td>{{$m->valor_usd}}</td>
-                        <td><a href="{{route('monedaedit',$m->id_moneda)}}" class="btn "><i class="bi bi-pencil-fill"></i></a></td>
-                        <form action="{{route('monedadestroy',$m->id_moneda)}}">
-                            <button class="btn btn-dark" type="submit"><i class="bi bi-pencil-fill"></i></button></td>
+                        <td><a href="{{route('editarmoneda',$m->id_moneda)}}" class="btn "><i class="bi bi-pencil-fill"></i></a></td>
+                        <form action="{{route('eliminarmoneda',$m->id_moneda)}}" method="POST">
+                           @csrf
+                           @method ('DELETE')
+                            <td><button class="btn btn-dark" type="submit"><i class="bi bi-trash3-fill"></i></button></td>
                         </form>
-                    </tr> 
+                    </tr>
                     @endforeach
               </table>
         </div>

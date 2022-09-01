@@ -1,7 +1,8 @@
         
 @extends('dashboard')
 @section('content') 
-        
+@include('sweetalert::alert')
+
         <div class="w-75 d-flex justify-content-center flex-column">
             <div class="w-100 d-flex p-1">
                 <a href="{{route('moneda.index')}}" class="btn fs-1"><i class="bi bi-arrow-left-circle-fill"></i></a>
@@ -14,7 +15,7 @@
 
                 
                 <div class="w-100 d-flex  flex-column justify-content-center aligin-items-center">
-                    <input type="text" class="form-control w-75 m-auto rounded-5" placeholder="ingresa la moneda" name="nombre_pais">
+                    <input type="text" class="form-control w-75 m-auto rounded-5" placeholder="ingresa la moneda" name="moneda">
                     <label for="" class="aligin-items-center d-flex justify-content-center text-info">moneda</label>
                 </div>
 
