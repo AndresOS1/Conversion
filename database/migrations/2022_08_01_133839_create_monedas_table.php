@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('monedas', function (Blueprint $table) {
             $table->id('id_moneda');
+            $table->string('moneda');
             $table->integer('valor');
             $table->double('valor_usd');
             $table->timestamps();

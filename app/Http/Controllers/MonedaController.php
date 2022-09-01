@@ -41,6 +41,7 @@ class MonedaController extends Controller
     {
         
         $validator = Validator::make($request->all(),[   
+                    'moneda' => 'required',
                     'valor' => 'required',
                     'valor_usd' =>'required',
         ]);
@@ -49,6 +50,7 @@ class MonedaController extends Controller
         if(!$validator->fails()){
 
             $moneda = new Moneda;
+            $moneda->moneda = $request->moneda;
             $moneda->valor = $request->valor;
             $moneda->valor_usd = $request->valor_usd;
             $moneda->save();
@@ -102,6 +104,7 @@ class MonedaController extends Controller
     {
         
         $validator = Validator::make($request->all(),[   
+                    'moneda' => 'required',
                     'valor' => 'required',
                     'valor_usd' =>'required',
         ]);
@@ -110,6 +113,7 @@ class MonedaController extends Controller
         if(!$validator->fails()){
 
             $moneda = Moneda::find($id);
+            $moneda->moneda = $request->moneda;
             $moneda->valor = $request->valor;
             $moneda->valor_usd = $request->valor_usd;
             $moneda->save();
