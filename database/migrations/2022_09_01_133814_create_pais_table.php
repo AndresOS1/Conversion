@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id('id_pais');
             $table->string('nombre_pais');
 
-            $table->unsignedBigInteger('moneda_id');
+            // $table->unsignedBigInteger('moneda_id');
 
-            $table->foreign('moneda_id')->references('id_moneda')->on('monedas');
+            // $table->foreign('moneda_id')->references('id_moneda')->on('monedas');
             $table->timestamps();
         });
     }
