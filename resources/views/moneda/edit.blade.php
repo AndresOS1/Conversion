@@ -1,18 +1,33 @@
+        
 @extends('dashboard')
 @section('content') 
-        
+@include('sweetalert::alert')
+
         <div class="w-75 d-flex justify-content-center flex-column">
             <div class="w-100 d-flex p-1">
-                <a href="{{-- {{route('moneda.index')}} --}}" class="btn fs-1"><i class="bi bi-arrow-left-circle-fill"></i></a>
+                <a href="{{route('moneda.index')}}" class="btn fs-1"><i class="bi bi-arrow-left-circle-fill"></i></a>
             </div>
-            <form action="{{-- {{route('moneda.update')}} --}}" class="d-flex flex-column w-75 m-auto mt-5 gap-5 " method="POST">
+            <form action="{{route('actualizarmoneda',$moneda->id_moneda)}}" class="d-flex flex-column w-75 m-auto mt-5 gap-5 " method="POST">
                 @csrf
+                @method('PUT')
                 <div class="w-100 d-flex  flex-column justify-content-center aligin-items-center">
                     <h1 class="d-flex justify-content-center">Crea tu moneda</h1>
                 </div>
+
+                
                 <div class="w-100 d-flex  flex-column justify-content-center aligin-items-center">
-                    <input type="text" class="form-control w-75 m-auto rounded-5" placeholder="ingresa la moneda" name="nombre_pais" value="{{$monedas->nombre_moneda}}">
+                    <input type="text" class="form-control w-75 m-auto rounded-5" placeholder="ingresa la moneda" name="moneda" value="{{$moneda->moneda}}">
                     <label for="" class="aligin-items-center d-flex justify-content-center text-info">moneda</label>
+                </div>
+
+                <div class="w-100 d-flex  flex-column justify-content-center aligin-items-center">
+                    <input type="text" class="form-control w-75 m-auto rounded-5" placeholder="ingresa la moneda" name="valor" value="{{$moneda->valor}}">
+                    <label for="" class="aligin-items-center d-flex justify-content-center text-info">valor</label>
+                </div>
+
+                <div class="w-100 d-flex  flex-column justify-content-center aligin-items-center">
+                    <input type="text" class="form-control w-75 m-auto rounded-5" placeholder="ingresa la moneda" name="valor_usd" value="{{$moneda->valor_usd}}">
+                    <label for="" class="aligin-items-center d-flex justify-content-center text-info">valor usd</label>
                 </div>
 
                 <div class="w-100 d-flex  flex-column justify-content-center aligin-items-center ">

@@ -89,7 +89,6 @@ class MonedaController extends Controller
     public function edit($id)
     {
         $moneda = Moneda::find($id);
-
         return view('moneda.edit', compact('moneda'));
     }
 

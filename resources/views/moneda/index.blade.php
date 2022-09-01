@@ -1,6 +1,7 @@
 @extends('dashboard')
 @section('content') 
-        
+@include('sweetalert::alert')
+
         <div class="w-75 d-flex justify-content-center flex-column h-100">
             <div class="w-100">
                 <a href="{{route('moneda.create')}}" class="btn btn-dark "><i class="bi bi-journal-plus"></i></a>
