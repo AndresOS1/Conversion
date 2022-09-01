@@ -6,7 +6,7 @@ use App\Models\Moneda;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
-
+use paginator;
 class MonedaController extends Controller
 {
     /**
@@ -14,11 +14,12 @@ class MonedaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $monedas = Moneda::all();
-
-        return view('moneda.index', compact('monedas'));
+        $buscar=$request->buscar;
+        $monedas = Moneda::where('moneda','Like','%'.$buscar.'%')
+        ->paginate(7);
+        return view('moneda.index', compact('monedas','buscar'));
     }
 
     /**

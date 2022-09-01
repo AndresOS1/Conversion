@@ -3,8 +3,16 @@
 @include('sweetalert::alert')
 
         <div class="w-75 d-flex justify-content-center flex-column h-100">
-            <div class="w-100">
+            <div class="w-100 d-flex flex-wrap gap-2 mb-2">
                 <a href="{{route('moneda.create')}}" class="btn btn-dark "><i class="bi bi-journal-plus"></i></a>
+                <form action="{{route('moneda.index')}}" method="GET">
+                    @csrf
+                    <div class="input-group col">
+                        <input type="text" class="form-control" name="buscar">
+                        <button class="btn input-group-text bi bi-search bg-warning text-white"></button>
+                     </div>
+                </form>
+
             </div>
             <table class="table">
                 <thead>
@@ -30,6 +38,10 @@
                         </form>
                     </tr>
                     @endforeach
+                
               </table>
+              <div class="w-100">
+                {{$monedas->links()}}
+              </div>
         </div>
 @endsection
