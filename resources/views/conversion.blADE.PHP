@@ -9,7 +9,7 @@
                 </div>
                        <div class="col d-flex flex-wrap flex-column mt-3">
                              <div class="w-100 d-flex flex-wrap justify-content-center">
-                                <input type="tel" class="form-contorl w-100">
+                                <input type="tel" class="form-contorl w-100" name="cantidad">
                                 <label for="">cantidad</label>
                              </div>
                              <div class="w-100 mt-2">
@@ -24,4 +24,5 @@
 
             </form>
        </div>
+       <script src="js/logica.js"></script>
 @endsection
