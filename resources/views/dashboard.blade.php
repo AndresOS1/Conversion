@@ -12,20 +12,20 @@
   </head>
   <body>
     <div class="col-12 d-flex flex-wrap">
-          <section class="col-3 d-flex flex-column bg-dark border rounded-4 shadow-lg h-auto">
+          <section class="col-2 d-flex flex-column bg-dark border rounded-4 shadow-lg h-auto">
                 <div class="w-100 d-flex justify-content-center aligin-items-center text-warning p-2">
                     <i class="bi bi-currency-exchange m-auto" style="font-size:5vw;"></i>
                 </div>
                 <div class="w-100 d-flex justify-content-start aligin-items-start text-white">
-                    <a href="{{route('moneda.index')}}" class="btn text-white w-100 fs-5 gap-3  bi bi-cash-coin justify-content-start text-white"> Moneda</a>
+                    <a href="{{route('moneda.index')}}" class="btn text-warning w-100  gap-3  bi bi-cash-coin justify-content-start text-white"> Moneda</a>
                </div>
 
                <div class="w-100 d-flex justify-content-start aligin-items-start text-white">
-                 <a href="{{route('conversion.create')}}" class="btn text-white w-100 fs-5 gap-3   justify-content-start text-white bi bi-arrow-clockwise">Conversion</a>
+                 <a href="{{route('conversion.create')}}" class="btn text-warning  w-100  gap-3   justify-content-start text-white bi bi-arrow-clockwise">Conversion</a>
                </div>
 
           </section>
-          <div class="col-9 p-3">
+          <div class="col-10 p-3">
             <section class="w-100 border rounded-5 shadow-lg d-flex justify-content-center" style="height:100vh;">
                 @yield('content')
             </section>
