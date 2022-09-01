@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pais;
+use App\Models\Moneda;
 use Illuminate\Http\Request;
 
 class PaisController extends Controller
@@ -14,7 +15,10 @@ class PaisController extends Controller
      */
     public function index()
     {
-        //
+        $paises = Pais::all();
+        $monedas = Moneda::all();
+        
+        return view('pais.index', compact('paises'));
     }
 
     /**
@@ -24,7 +28,11 @@ class PaisController extends Controller
      */
     public function create()
     {
-        //
+        $monedas = Moneda::all();
+
+        return view('pais.create', compact('monedas'));
+
+
     }
 
     /**
@@ -35,7 +43,31 @@ class PaisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(),[   
+                    'nombre_pais' => 'required',
+                    'moneda_id' =>'required',
+        ]);
+
+
+        if(!$validator->fails()){
+
+            $pais = new Pais;
+            $pais->nombre_pais = $request->nombre_pais;
+            $pais->moneda_id = $request->moneda_id;
+            $pais->save();
+            if($pais){
+
+                Alert::success('Pais creada correctamente');
+                return redirect()->route('pais.index');
+            }else{
+                Alert::error('Error');
+                return redirect()->route('pais.create');
+            }
+        }else{
+            Alert::error('Falta un campo');
+            return redirect()->route('pais.create');
+
+        }
     }
 
     /**
@@ -55,9 +87,13 @@ class PaisController extends Controller
      * @param  \App\Models\Pais  $pais
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pais $pais)
+    public function edit($id)
     {
-        //
+        
+        $pais = Pais::find($id);
+        $monedas = Moneda::all();
+
+        return view('pais.edit', compact('pais', 'monedas'));
     }
 
     /**
@@ -67,9 +103,34 @@ class PaisController extends Controller
      * @param  \App\Models\Pais  $pais
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pais $pais)
+    public function update(Request $request, $id)
     {
-        //
+        
+        $validator = Validator::make($request->all(),[   
+                    'nombre_pais' => 'required',
+                    'moneda_id' =>'required',
+        ]);
+
+
+        if(!$validator->fails()){
+
+            $pais = Pais::find($id);
+            $pais->nombre_pais = $request->nombre_pais;
+            $pais->moneda_id = $request->moneda_id;
+            $pais->save();
+            if($pais){
+
+                Alert::success('Pais atualizado correctamente');
+                return redirect()->route('pais.index');
+            }else{
+                Alert::error('Error');
+                return redirect()->route('pais.edit');
+            }
+        }else{
+            Alert::error('Falta un campo');
+            return redirect()->route('pais.edit');
+
+        }
     }
 
     /**
@@ -78,8 +139,11 @@ class PaisController extends Controller
      * @param  \App\Models\Pais  $pais
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pais $pais)
+    public function destroy($id)
     {
-        //
+        $pais = Pais::findOrFail($id);
+        $pais->delete();
+        Alert::success('Pais Eliminado correctamente');
+        return redirect()->route('pais.index');
     }
 }
