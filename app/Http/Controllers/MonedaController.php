@@ -18,7 +18,7 @@ class MonedaController extends Controller
     {
         $buscar=$request->buscar;
         $monedas = Moneda::where('moneda','Like','%'.$buscar.'%')
-        ->paginate(7);
+        ->paginate(2);
         return view('moneda.index', compact('monedas','buscar'));
     }
 
