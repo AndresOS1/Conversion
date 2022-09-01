@@ -25,10 +25,10 @@ ROute::get('/d',function(){
 
 
 
-Route::get('/pais.index',[PaisController::class,'index'])->name('Pais.index');
-Route::get('/pais.create',[PaisController::class,'create'])->name('Pais.create');
-Route::post('/pais.store',[PaisController::class,'store'])->name('Pais.store');
-Route::get('/editarpais/{id}',[PaisController::class,'edit'])->name('editarpregunta');
+Route::get('/pais.index',[PaisController::class,'index'])->name('pais.index');
+Route::get('/pais.create',[PaisController::class,'create'])->name('pais.create');
+Route::post('/pais.store',[PaisController::class,'store'])->name('pais.store');
+Route::get('/editarpais/{id}',[PaisController::class,'edit'])->name('editarpais');
 Route::put('/actualizarpais/{id}',[PaisController::class,'update'])->name('actualizarpais');
 Route::delete('/eliminarpais/{id}',[PaisController::class,'destroy'])->name('eliminarpais');
 
