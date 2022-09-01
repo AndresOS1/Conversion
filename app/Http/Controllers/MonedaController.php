@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Moneda;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MonedaController extends Controller
 {
@@ -14,7 +16,9 @@ class MonedaController extends Controller
      */
     public function index()
     {
-        //
+        $monedas = Moneda::all();
+
+        return view('moneda.index', compact('monedas'));
     }
 
     /**
@@ -24,7 +28,7 @@ class MonedaController extends Controller
      */
     public function create()
     {
-        //
+        return view('moneda.create');
     }
 
     /**
@@ -35,7 +39,32 @@ class MonedaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $validator = Validator::make($request->all(),[   
+                    'valor' => 'required',
+                    'valor_usd' =>'required',
+        ]);
+
+
+        if(!$validator->fails()){
+
+            $moneda = new Moneda;
+            $moneda->valor = $request->valor;
+            $moneda->valor_usd = $request->valor_usd;
+            $moneda->save();
+            if($moneda){
+
+                Alert::success('Moneda creada correctamente');
+                return redirect()->route('moneda.index');
+            }else{
+                Alert::error('Error');
+                return redirect()->route('moneda.create');
+            }
+        }else{
+            Alert::error('Falta un campo');
+            return redirect()->route('moneda.create');
+
+        }
     }
 
     /**
@@ -55,9 +84,11 @@ class MonedaController extends Controller
      * @param  \App\Models\Moneda  $moneda
      * @return \Illuminate\Http\Response
      */
-    public function edit(Moneda $moneda)
+    public function edit($id)
     {
-        //
+        $moneda = Moneda::find($id);
+
+        return view('moneda.edit', compact('moneda'));
     }
 
     /**
@@ -67,9 +98,34 @@ class MonedaController extends Controller
      * @param  \App\Models\Moneda  $moneda
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Moneda $moneda)
+    public function update(Request $request, $id)
     {
-        //
+        
+        $validator = Validator::make($request->all(),[   
+                    'valor' => 'required',
+                    'valor_usd' =>'required',
+        ]);
+
+
+        if(!$validator->fails()){
+
+            $moneda = Moneda::find($id);
+            $moneda->valor = $request->valor;
+            $moneda->valor_usd = $request->valor_usd;
+            $moneda->save();
+            if($moneda){
+
+                Alert::success('Moneda actualizada correctamente');
+                return redirect()->route('moneda.index');
+            }else{
+                Alert::error('Error');
+                return redirect()->route('moneda.edit');
+            }
+        }else{
+            Alert::error('Falta un campo');
+            return redirect()->route('moneda.edit');
+
+        }
     }
 
     /**
@@ -78,8 +134,13 @@ class MonedaController extends Controller
      * @param  \App\Models\Moneda  $moneda
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Moneda $moneda)
+    public function destroy($id)
     {
-        //
+        $moneda = Moneda::findOrFail($id);
+        $moneda->delete();
+
+        Alert::success('Moneda eliminada correctamente');
+
+        return redirect()->route('moneda.index');
     }
 }
