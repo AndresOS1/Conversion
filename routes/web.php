@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+ROute::get('/d',function(){
+    return view('conversion');
+});
+
+
