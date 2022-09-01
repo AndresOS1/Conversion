@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id('id_conversion');
 
             $table->unsignedBigInteger('moneda_id');
-            $table->unsignedBigInteger('pais_id');
+            // $table->unsignedBigInteger('pais_id');
 
             $table->foreign('moneda_id')->references('id_moneda')->on('monedas');
-            $table->foreign('pais_id')->references('id_pais')->on('pais');
+            // $table->foreign('pais_id')->references('id_pais')->on('pais');
 
 
 
