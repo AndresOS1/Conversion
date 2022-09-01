@@ -9,7 +9,7 @@
                 </div>
                        <div class="col d-flex flex-wrap flex-column mt-3">
                              <div class="w-100 d-flex flex-wrap justify-content-center">
-                                <input type="number" class="form-contorl w-100">
+                                <input type="tel" class="form-contorl w-100">
                                 <label for="">cantidad</label>
                              </div>
                              <div class="w-100 mt-2">
