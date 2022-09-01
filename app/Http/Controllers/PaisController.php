@@ -18,7 +18,7 @@ class PaisController extends Controller
         $paises = Pais::all();
         $monedas = Moneda::all();
         
-        return view('pais.index', compact('paises'));
+        return view('pais.index', compact('paises', 'monedas'));
     }
 
     /**

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Conversion;
+use App\Models\Pais;
+use App\Models\Moneda;
 use Illuminate\Http\Request;
 
 class ConversionController extends Controller
@@ -24,7 +26,9 @@ class ConversionController extends Controller
      */
     public function create()
     {
-        //
+        $paises = Pais::all();
+        $monedas = Moneda::all();
+        
     }
 
     /**
