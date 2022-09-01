@@ -36,6 +36,6 @@ Route::get('/editarmoneda/{id}',[MonedaController::class,'edit'])->name('editarm
 Route::put('/actualizarmoneda/{id}',[MonedaController::class,'update'])->name('actualizarmoneda');
 Route::delete('/eliminarmoneda/{id}',[MonedaController::class,'destroy'])->name('eliminarmoneda');
 
-Route::get('/conversion.create',[ConversionController::class,'index'])->name('moneda.index');
+Route::get('/conversion.create',[ConversionController::class,'create'])->name('conversion.create');
 
 
