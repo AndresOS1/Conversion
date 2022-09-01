@@ -17,6 +17,9 @@
                 <div class="w-100 d-flex  flex-column justify-content-center aligin-items-center rounded-5">
                     <select type="text" class="form-select w-75 m-auto rounded-5" placeholder="ingresa el pais" name="moneda_id" value="{{-- {{$pais->moneda_id}} --}}">
                           <option value="" selected class="">escoger la moneda</option>
+                          {{-- @foreach ($monedas as $m)
+                            <option value="{{$m->id_moneda}}" selected class="">{{$m->nombre_moneda}}</option>
+                          @endforeach --}}
                     <select>
                     <label for="" class="aligin-items-center d-flex justify-content-center text-info">moneda</label>
                 </div>

@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 ROute::get('/d',function(){
-    return view('pais.edit');
+    return view('moneda.create');
 });
 
 
